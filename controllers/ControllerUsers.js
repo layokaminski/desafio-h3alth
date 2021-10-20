@@ -5,7 +5,7 @@ const CREATED = 201;
 const create = async (req, res, next) => {
   try {
     const { firstName, lastName, birthdate, addresses } = req.body;
-
+    
     const createdUser = await ServiceUsers
       .create({ firstName, lastName, birthdate, addresses });
 

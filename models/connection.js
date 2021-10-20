@@ -5,19 +5,19 @@ const OPTIONS = {
   useUnifiedTopology: true,
 };
 
-const MONGO_DB_URL = 'mongodb://mongodb:27017/UserManager';
+const MONGO_DB_URL = 'mongodb://localhost:27017/UserManager';
 const DB_NAME = 'UserManager';
 
 let db = null;
 
-const connection = () => (
-  db
+const connection = () => {
+  return db
     ? Promise.resolve(db)
     : MongoClient.connect(MONGO_DB_URL, OPTIONS)
       .then((conn) => {
         db = conn.db(DB_NAME);
         return db;
-      })
-);
+      });  
+};
 
 module.exports = connection;
