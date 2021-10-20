@@ -9,6 +9,9 @@ const create = async ({ firstName, lastName, birthdate, addresses }) => {
   return {
     user: {
       _id: createdUser.insertedId,
+      firstName,
+      lastName,
+      birthdate,
     },
   };
 };
